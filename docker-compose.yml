@@ -72,7 +72,20 @@ services:
     networks:
       vpcbr:
         ipv4_address: 10.5.0.9
-
+  redis:
+    image: docker.io/bitnami/redis:6.2
+    container_name: app_redis
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - '1000:6379'
+    volumes:
+      - 'redis_data:/bitnami/redis/data'
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.10
 #Docker Networks
 networks:
   vpcbr:
@@ -83,5 +96,7 @@ networks:
 
 #Volumes
 volumes:
+  redis_data:
+    driver: local
   dbdata:
     driver: local

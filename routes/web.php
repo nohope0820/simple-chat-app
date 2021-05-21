@@ -21,3 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/fire', function () {
+    event(new \App\Events\TestEvent());
+    return 'ok';
+});

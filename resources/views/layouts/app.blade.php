@@ -16,9 +16,31 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyCdMRm3q_ag6soHq1qsi3LzTKN9v1AeSvo",
+          authDomain: "test-chat-app-9813d.firebaseapp.com",
+          projectId: "test-chat-app-9813d",
+          storageBucket: "test-chat-app-9813d.appspot.com",
+          messagingSenderId: "778213847552",
+          appId: "1:778213847552:web:8cfe8b548f1c4539d2dee5",
+          measurementId: "G-ZTGCQBSN1P"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
     @yield('css')
+    @yield('header-scripts')
 </head>
 <body>
     <div id="app">

@@ -34,9 +34,14 @@ Route::group(['namespace' => 'Api'], function () {
             Route::delete('/{id}', 'RejectController@main');
     });
 
-    Route::group(['prefix' => 'message-personal','namespace' => 'messagePersonal'], function () {
+    Route::group([
+        'prefix' => 'message-personal',
+        'namespace' => 'messagePersonal'
+    ], function () {
 
-        Route::get('', 'IndexController@main');
+        Route::get('/{id}', 'IndexController@main');
+
+        Route::post('', 'StoreController@main');
     });
 
     Route::group(['prefix' => 'profile', 'namespace'=>'Profile'], function () {

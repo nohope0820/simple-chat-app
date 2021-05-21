@@ -36,4 +36,11 @@ class MessagePersonalServices
             $paginate
         );
     }
+
+    public function store($senderId, $receiverId, array $params)
+    {
+        $params["sender_id"] = $senderId;
+        $params["receiver_id"] = $receiverId;
+        return $this->messagePersonalRepository->store($params);
+    }
 }
